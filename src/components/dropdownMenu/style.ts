@@ -30,6 +30,10 @@ export const Container = styled.div<{ $openDropdownMenu: boolean, $isLogged: boo
             right: 50px;
         }
     }
+
+    .warning {
+        color: red;
+    }
 `;
 
 export const MenuItem = styled.div`

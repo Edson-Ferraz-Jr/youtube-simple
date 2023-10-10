@@ -53,6 +53,17 @@ export const UserStorage = ({ children }: any) => {
             console.log('Erro ao criar usuário', error);
         });
     };
+
+
+    const deleteUser = (token: string, user_id: string) => {
+        api.delete(`/user/delete/${user_id}`, { headers: { Authorization: token } }).then(({ data }) => {
+            console.log(data);
+
+            logOut();
+        }).catch((error) => {
+
+        });
+    };
     
     return(
         <UserContext.Provider value={{
@@ -61,7 +72,8 @@ export const UserStorage = ({ children }: any) => {
             user,
             handleLogin,
             logOut,
-            signUp
+            signUp,
+            deleteUser
         }}>
             { children }
         </UserContext.Provider>
